@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply bg-white;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  button,
+  input {
+    @apply font-ubuntu text-black;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply bg-transparent focus:outline-none;
+  }
+}
+
