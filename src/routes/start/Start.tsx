@@ -1,7 +1,7 @@
 import { StartButton } from './StartButton';
 import { Players } from '@/features/players/components/Players';
 import { useSelector } from '@/store';
-import { selectGame } from './gameSlice';
+import { selectGame } from '../../store/globalSlices/gameSlice';
 import { useIsMounted } from '@/hooks/useIsMounted';
 import { cn } from '@/utils';
 
@@ -12,7 +12,7 @@ export const Start = () => {
   return (
     <div
       className={cn(
-        'relative flex h-screen flex-col items-center justify-center gap-20 p-5 bg-',
+        'bg- relative flex h-screen flex-col items-center justify-center gap-20 p-5',
         'bg-gradient-to-b from-red-600 to-red-500',
       )}
     >

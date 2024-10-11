@@ -13,13 +13,17 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    startGame: (state) => {
+    startGameSetup: (state) => {
       state.isStarted = true;
+    },
+    exitGameSetup: (state) => {
+      state.isStarted = false;
     },
   },
 });
 
-export const { startGame } = gameSlice.actions;
+export const { startGameSetup, exitGameSetup } =
+  gameSlice.actions;
 
 export const selectGame = (state: RootState) => state.game;
 

@@ -1,5 +1,5 @@
 import { useDispatch } from '@/store';
-import { startGame } from './gameSlice';
+import { startGameSetup } from '../../store/globalSlices/gameSlice';
 import { cn } from '@/utils';
 
 type StartButtonType = {
@@ -9,15 +9,15 @@ type StartButtonType = {
 export const StartButton = ({ isMounted }: StartButtonType) => {
   const dispatch = useDispatch();
 
-  const handleStartGame = () => {
-    dispatch(startGame());
+  const handleStartGameSetup = () => {
+    dispatch(startGameSetup());
   };
 
   return (
     <div
       className={cn(
         'translate-y-4 opacity-0',
-        isMounted && 'opacity-1 translate-y-0',
+        'opacity-1 translate-y-0',
         'transition-all delay-300 duration-300',
       )}
     >
@@ -26,7 +26,7 @@ export const StartButton = ({ isMounted }: StartButtonType) => {
           'rounded-full border-[2px] border-white px-6 py-5 font-ubuntu text-xl text-white',
           'transition-all duration-200 ease-in-out hover:px-7',
         )}
-        onClick={handleStartGame}
+        onClick={handleStartGameSetup}
       >
         Start
       </button>

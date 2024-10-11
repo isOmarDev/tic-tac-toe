@@ -3,7 +3,7 @@ import {
   useDispatch as useReduxDispatch,
   useSelector as useReduxSelector,
 } from 'react-redux';
-import gameSlice from '@/routes/start/gameSlice';
+import gameSlice from './globalSlices/gameSlice';
 import playersSlice from '@/features/players/slices/playersSlice';
 
 export const store = configureStore({
