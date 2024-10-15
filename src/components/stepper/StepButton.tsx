@@ -16,7 +16,7 @@ export const StepButton = ({
     <button
       className={cn(
         'group flex items-center justify-center',
-        'overflow-hidden rounded-full bg-white font-semibold text-cyan-950',
+        'overflow-hidden bg-white font-semibold text-cyan-950',
         'transition-all',
         className,
       )}
