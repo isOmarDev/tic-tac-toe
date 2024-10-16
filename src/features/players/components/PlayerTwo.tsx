@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { AddPlayerForm } from './AddPlayerForm';
 import { useDispatch, useSelector } from '@/store';
+import { playGame } from '@/store/globalSlices';
 import {
   selectPlayersName,
   setPlayer2Name,
@@ -10,9 +11,10 @@ export const PlayerTwo = () => {
   const { player2 } = useSelector(selectPlayersName);
   const dispatch = useDispatch();
 
-  const onAddPlayer = useCallback(
+  const handleOnSuccess = useCallback(
     (name: string) => {
       dispatch(setPlayer2Name(name));
+      dispatch(playGame());
     },
     [dispatch],
   );
@@ -21,7 +23,7 @@ export const PlayerTwo = () => {
     <AddPlayerForm
       label="Player 2"
       initialName={player2}
-      onAddPlayer={onAddPlayer}
+      onSuccess={handleOnSuccess}
     />
   );
 };

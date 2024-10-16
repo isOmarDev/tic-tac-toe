@@ -6,22 +6,25 @@ import {
   setPlayer1Name,
 } from '../slices/playersSlice';
 
-export const PlayerOne = () => {
+type PlayerOneProps = { onNextStep: () => void };
+
+export const PlayerOne = ({ onNextStep }: PlayerOneProps) => {
   const { player1 } = useSelector(selectPlayersName);
   const dispatch = useDispatch();
 
-  const onAddPlayer = useCallback(
-    (name: string) => {
-      dispatch(setPlayer1Name(name));
+  const handleOnSuccess = useCallback(
+    (playerName: string) => {
+      dispatch(setPlayer1Name(playerName));
+      onNextStep();
     },
-    [dispatch],
+    [dispatch, onNextStep],
   );
 
   return (
     <AddPlayerForm
       label="Player 1"
       initialName={player1}
-      onAddPlayer={onAddPlayer}
+      onSuccess={handleOnSuccess}
     />
   );
 };
