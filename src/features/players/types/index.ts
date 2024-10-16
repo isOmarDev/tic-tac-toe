@@ -1,10 +1,21 @@
 import { z } from 'zod';
 
-const Player = z.object({
-  player: z
-    .string()
-    .min(1, 'Name must be at least 1 charater')
-    .max(10),
+export const NameSchema = z
+  .string()
+  .trim()
+  .min(1, { message: 'Name is required.' })
+  .min(3, { message: 'Name must be at least 3 characters.' })
+  .max(10, { message: 'Name must be at most 10 characters.' });
+
+export const SideSchema = z
+  .string()
+  .refine((val) => val === 'X' || val === 'O', {
+    message: "Side must be either 'X' or 'O'",
+  });
+
+export const PlayerSchema = z.object({
+  name: NameSchema,
+  side: SideSchema,
 });
 
-type Player = z.infer<typeof Player>;
+export type Player = z.infer<typeof PlayerSchema>;
