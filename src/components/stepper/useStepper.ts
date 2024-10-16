@@ -1,7 +1,13 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const useStepper = (initialStep: number = 0) => {
   const [activeStep, setActiveStep] = useState(initialStep);
+
+  const prevStepRef = useRef(activeStep);
+
+  useEffect(() => {
+    prevStepRef.current = activeStep;
+  }, [activeStep]);
 
   const handlePrev = useCallback(
     () => setActiveStep((prevActiveStep) => prevActiveStep - 1),
@@ -17,5 +23,11 @@ export const useStepper = (initialStep: number = 0) => {
     setActiveStep(0);
   };
 
-  return { activeStep, handlePrev, handleNext, handleReset };
+  return {
+    activeStep,
+    prevStep: prevStepRef.current,
+    handlePrev,
+    handleNext,
+    handleReset,
+  };
 };
