@@ -1,12 +1,9 @@
 import { useDispatch } from '@/store';
+import { Transition } from '@/components/animation';
 import { startGameSetup } from '../../store/globalSlices/gameSlice';
 import { cn } from '@/utils';
 
-type StartButtonType = {
-  isMounted: boolean;
-};
-
-export const StartButton = ({ isMounted }: StartButtonType) => {
+export const StartButton = () => {
   const dispatch = useDispatch();
 
   const handleStartGameSetup = () => {
@@ -14,13 +11,7 @@ export const StartButton = ({ isMounted }: StartButtonType) => {
   };
 
   return (
-    <div
-      className={cn(
-        'translate-y-4 opacity-0',
-        'opacity-1 translate-y-0',
-        'transition-all delay-300 duration-300',
-      )}
-    >
+    <Transition translateY={16} duration={300} delay={300}>
       <button
         className={cn(
           'rounded-full border-[2px] border-white px-6 py-5 font-ubuntu text-xl text-white',
@@ -30,6 +21,6 @@ export const StartButton = ({ isMounted }: StartButtonType) => {
       >
         Start
       </button>
-    </div>
+    </Transition>
   );
 };
