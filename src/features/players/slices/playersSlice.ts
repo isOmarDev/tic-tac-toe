@@ -16,16 +16,23 @@ export const playersSlice = createSlice({
   initialState,
   reducers: {
     setPlayer1Name: (state, action: PayloadAction<string>) => {
-      state.player1 += action.payload;
+      state.player1 = action.payload;
     },
     setPlayer2Name: (state, action: PayloadAction<string>) => {
-      state.player2 += action.payload;
+      state.player2 = action.payload;
+    },
+    resetPlayersNames: (state) => {
+      state.player1 = '';
+      state.player2 = '';
     },
   },
 });
 
-export const { setPlayer1Name, setPlayer2Name } =
-  playersSlice.actions;
+export const {
+  setPlayer1Name,
+  setPlayer2Name,
+  resetPlayersNames,
+} = playersSlice.actions;
 
 export const selectPlayersName = (state: RootState) =>
   state.players;
