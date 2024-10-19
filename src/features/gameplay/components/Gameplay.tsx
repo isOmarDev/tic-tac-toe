@@ -5,7 +5,9 @@ export const Gameplay = () => {
   return (
     <div>
       <Scoreboard />
-      <Gameboard />
+      <div className="mt-16">
+        <Gameboard />
+      </div>
     </div>
   );
 };

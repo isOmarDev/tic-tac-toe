@@ -7,7 +7,7 @@ export const Scoreboard = () => {
     <div className="flex items-center gap-10">
       <PlayerScore
         name="Omar"
-        side={<X strokeWidth={6} color="#fde047 " />}
+        side={<X strokeWidth={6} color="#fde047" />}
         score="0"
       />
       <Round />

@@ -4,7 +4,7 @@ export const Round = () => {
   return (
     <div
       className={cn(
-        'flex h-20 w-20 flex-col items-center justify-center',
+        'flex h-20 w-20 shrink-0 flex-col items-center justify-center',
         'rounded-full bg-cyan-950 text-white shadow-xl',
       )}
     >
