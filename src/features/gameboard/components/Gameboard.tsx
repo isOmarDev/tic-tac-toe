@@ -8,9 +8,9 @@ export const Gameboard = () => {
       className={cn(
         'relative',
         'mx-auto',
-        'h-[400px] w-[400px]',
+        'h-[370px] w-[370px]',
         'rounded-3xl outline outline-[6px] -outline-offset-1 outline-red-50',
-        'bg-zinc-400',
+        'bg-red-500',
         'overflow-hidden shadow-2xl',
       )}
     >

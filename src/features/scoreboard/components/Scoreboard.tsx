@@ -1,20 +1,40 @@
 import { Circle, X } from 'lucide-react';
 import { PlayerScore } from './PlayerScore';
 import { Round } from './Round';
+import { Draw } from './Draw';
+import { useSelector } from '@/store';
+import { selectPlayersName } from '@/features/players/slices';
 
 export const Scoreboard = () => {
+  const { player1, player2 } = useSelector(selectPlayersName);
+
   return (
     <div className="flex items-center gap-10">
       <PlayerScore
-        name="Omar"
-        side={<X strokeWidth={6} color="#fde047" />}
+        name={player1}
+        side={
+          <X
+            size={38}
+            strokeWidth={6}
+            className="text-[#f9d459] drop-shadow-lg"
+          />
+        }
         score="0"
       />
-      <Round />
+
+      <div className="self-start">
+        <Round />
+        <Draw />
+      </div>
+
       <PlayerScore
-        name="Mohamed"
+        name={player2}
         side={
-          <Circle strokeWidth={10} className="rounded-full" />
+          <Circle
+            size={38}
+            strokeWidth={10}
+            className="rounded-full drop-shadow-lg"
+          />
         }
         score="0"
       />

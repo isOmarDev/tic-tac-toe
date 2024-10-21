@@ -17,33 +17,24 @@ export const PlayerScore = ({
         'flex',
         'shrink-0 flex-col items-center',
         'p-6',
-        'rounded-[28px]',
+        'rounded-[28px] outline outline-[0px] -outline-offset-1 outline-red-100',
         'bg-red-50',
         'shadow-lg',
-        // "outline outline-4 outline-red-400 outline-offset-4"
+        'transition-all',
       )}
     >
-      <PlayerSide side={side} />
+      <PlayerSymbole side={side} />
       <PlayerName name={name} />
       <PlayerRoundsWon score={score} />
     </div>
   );
 };
 
-const PlayerSide = ({
+const PlayerSymbole = ({
   side,
 }: Pick<PlayerScoreProps, 'side'>) => {
   return (
-    <div
-      className={cn(
-        'px-4 py-4',
-        'rounded-full text-white',
-        'bg-red-500',
-        'shadow-md',
-      )}
-    >
-      {side}
-    </div>
+    <div className={cn('rounded-full text-white')}>{side}</div>
   );
 };
 
@@ -51,7 +42,7 @@ const PlayerName = ({
   name,
 }: Pick<PlayerScoreProps, 'name'>) => {
   return (
-    <div className={cn('mt-4', 'font-semibold')}>{name}</div>
+    <div className={cn('mt-5', 'font-semibold')}>{name}</div>
   );
 };
 

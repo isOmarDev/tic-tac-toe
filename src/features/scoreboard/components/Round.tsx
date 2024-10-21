@@ -4,8 +4,12 @@ export const Round = () => {
   return (
     <div
       className={cn(
-        'flex h-20 w-20 shrink-0 flex-col items-center justify-center',
-        'rounded-full bg-cyan-950 text-white shadow-xl',
+        'flex',
+        'shrink-0 flex-col items-center justify-center',
+        'h-20 w-20',
+        'rounded-full',
+        'text-white',
+        'bg-cyan-950 shadow-xl',
       )}
     >
       <span className="text-2xl font-semibold">

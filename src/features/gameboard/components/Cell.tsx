@@ -1,33 +1,46 @@
 import { Circle, X } from 'lucide-react';
 import { cn } from '@/utils';
+import { useState } from 'react';
+import { Transition } from '@/components/animation';
 
 type CellProps = {
   index: number;
 };
 
 export const Cell = ({ index }: CellProps) => {
+  const [symbole, setSymbole] = useState<'x' | 'o'>();
+
+  const handleCellClick = () => {
+    setSymbole('o');
+  };
+
   return (
     <div
       className={cn(
         'flex items-center justify-center',
         'cursor-pointer',
-        (index == 3 || index == 4 || index == 5) &&
-          'bg-zinc-500',
+        (index == 2 || index == 4 || index == 6) && 'bg-red-600',
       )}
+      onClick={handleCellClick}
     >
-      {index % 3 ? (
-        <Circle
-          size="40"
-          strokeWidth={10}
-          color="white"
-          className="rounded-full drop-shadow-lg"
-        />
-      ) : (
-        <X
-          size="45"
-          strokeWidth={5}
-          className="text-yellow-300 drop-shadow-lg filter"
-        />
+      {symbole === 'x' && (
+        <Transition scale={0}>
+          <X
+            size="45"
+            strokeWidth={6}
+            className="text-[#f9d459] drop-shadow-lg"
+          />
+        </Transition>
+      )}
+
+      {symbole === 'o' && (
+        <Transition scale={0}>
+          <Circle
+            size="40"
+            strokeWidth={10}
+            className="rounded-full text-white drop-shadow-lg"
+          />
+        </Transition>
       )}
     </div>
   );

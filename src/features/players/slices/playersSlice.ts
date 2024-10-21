@@ -7,8 +7,8 @@ interface playersState {
 }
 
 const initialState: playersState = {
-  player1: '',
-  player2: '',
+  player1: 'omar',
+  player2: 'nour',
 };
 
 export const playersSlice = createSlice({

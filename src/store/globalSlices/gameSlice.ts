@@ -8,7 +8,7 @@ interface GameState {
 
 const initialState: GameState = {
   isStarted: false,
-  isPlaying: true,
+  isPlaying: false,
 };
 
 export const gameSlice = createSlice({

@@ -3,19 +3,18 @@ import { cn } from '@/utils';
 
 export const Borders = () => {
   const orientations = ['horizontal', 'vertical'] as const;
+  const borders = Array(2).fill(null);
 
   return (
     <>
       {orientations.map((orientation) =>
-        Array(2)
-          .fill(null)
-          .map((_, index) => (
-            <Border
-              key={`${orientation}-${index}`}
-              orientation={orientation}
-              index={index}
-            />
-          )),
+        borders.map((_, index) => (
+          <Border
+            key={`${orientation}-${index}`}
+            orientation={orientation}
+            index={index}
+          />
+        )),
       )}
     </>
   );
@@ -27,10 +26,9 @@ type BorderProps = {
   index: number;
 };
 
-const baseClasses = 'absolute m-auto rounded-lg bg-red-50';
 const orientationClasses = {
-  horizontal: 'left-0 right-0 h-[3px] w-[350px]',
-  vertical: 'bottom-0 top-0 h-[350px] w-[3px]',
+  horizontal: 'left-0 right-0 h-[3px] w-[calc(100%-50px)]',
+  vertical: 'bottom-0 top-0 h-[calc(100%-50px)] w-[3px]',
 };
 
 const Border = ({
@@ -66,7 +64,7 @@ const Border = ({
     <div
       ref={divRef}
       className={cn(
-        baseClasses,
+        'absolute m-auto rounded-lg bg-red-50',
         orientationClasses[orientation],
         className,
       )}

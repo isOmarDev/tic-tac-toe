@@ -12,29 +12,34 @@ export const Start = () => {
   return (
     <div
       className={cn(
-        'relative flex h-screen flex-col items-center justify-center gap-20 p-5',
-        isPlaying && 'justify-start gap-10',
-        'bg-gradient-to-b from-red-600 to-red-500',
+        'relative flex',
+        'flex-col items-center justify-center gap-20',
+        'p-5',
+        'h-screen',
+        'bg-red-500',
+        'transition-colors',
+        isPlaying && 'justify-start gap-10 bg-red-100',
       )}
     >
       <Transition translateX={-20} duration={300}>
         <h1
           className={cn(
-            '-rotate-12 font-bangers text-6xl text-white',
-            isStarted && 'scale-50',
-            isPlaying && 'scale-[0.3]',
-            'transition-transform',
+            'font-bangers text-6xl text-white',
+            'drop-shadow-md',
+            '-rotate-12 transition-transform ',
             'sm:text-8xl',
+            isStarted && 'scale-50',
+            isPlaying && 'scale-[0.3] text-white',
           )}
         >
           tic tac toe
         </h1>
       </Transition>
 
-      {/* {!isStarted && <StartButton />} */}
-      {/* {isStarted && !isPlaying && <PlayersSetup />}
-      {isPlaying && <Gameplay />} */}
-      <Gameplay />
+      {!isStarted && <StartButton />}
+      {isStarted && !isPlaying && <PlayersSetup />}
+      {isPlaying && <Gameplay />}
+      {/* <Gameplay /> */}
     </div>
   );
 };
