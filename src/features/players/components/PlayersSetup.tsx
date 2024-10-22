@@ -69,7 +69,7 @@ export const PlayersSetup = () => {
           const isNextStep = activeStep > prevStep;
 
           return (
-            <Step>
+            <Step key={index}>
               <Transition
                 key={index}
                 translateX={
