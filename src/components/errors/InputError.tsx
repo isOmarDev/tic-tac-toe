@@ -11,8 +11,10 @@ export const InputError = ({
   return (
     <div
       className={cn(
-        'translate-y-2 bg-red-700 px-4 py-2 text-sm text-white opacity-0',
-        'transition-transform',
+        'px-4 py-2',
+        'text-sm text-white opacity-0',
+        'bg-red-600',
+        'translate-y-2 transition-transform ',
         isMounted && 'translate-y-0 opacity-100',
         className,
       )}
