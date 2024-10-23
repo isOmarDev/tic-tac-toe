@@ -9,7 +9,7 @@ export const Gameboard = () => {
         'relative',
         'mx-auto',
         'h-[370px] w-[370px]',
-        'rounded-3xl outline outline-[6px] -outline-offset-1 outline-red-50',
+        'rounded-3xl outline outline-[6px] -outline-offset-1 outline-white',
         'bg-red-500',
         'overflow-hidden shadow-2xl',
       )}

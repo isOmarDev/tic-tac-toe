@@ -28,7 +28,7 @@ export const Cell = ({ index }: CellProps) => {
           <X
             size="45"
             strokeWidth={6}
-            className="text-[#f9d459] drop-shadow-lg"
+            className="text-[#ffbf00] drop-shadow-xl"
           />
         </Transition>
       )}
@@ -38,7 +38,7 @@ export const Cell = ({ index }: CellProps) => {
           <Circle
             size="40"
             strokeWidth={10}
-            className="rounded-full text-white drop-shadow-lg"
+            className="rounded-full text-white drop-shadow-xl"
           />
         </Transition>
       )}
