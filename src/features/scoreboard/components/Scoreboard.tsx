@@ -16,7 +16,7 @@ export const Scoreboard = () => {
           <X
             size={38}
             strokeWidth={6}
-            className="text-[#f9d459] drop-shadow-lg"
+            className="text-[#ffbf00] drop-shadow-md"
           />
         }
         score="0"
@@ -33,7 +33,7 @@ export const Scoreboard = () => {
           <Circle
             size={38}
             strokeWidth={10}
-            className="rounded-full drop-shadow-lg"
+            className="rounded-full drop-shadow-md"
           />
         }
         score="0"
