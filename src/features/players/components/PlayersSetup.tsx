@@ -10,10 +10,10 @@ import {
   Step,
   useStepper,
   StepButton,
-} from '@/components/stepper';
+} from '@/components/navigation/stepper';
 import { Transition } from '@/components/animation';
-import { PlayerOne } from './PlayerOne';
-import { PlayerTwo } from './PlayerTwo';
+import { AddPlayerOne } from './AddPlayerOne';
+import { AddPlayerTwo } from './AddPlayerTwo';
 import { useDispatch } from '@/store';
 import { exitGameSetup } from '@/store/globalSlices';
 import { resetPlayersNames } from '../slices/playersSlice';
@@ -42,7 +42,7 @@ export const PlayersSetup = () => {
           name: 'Player 2',
           icon: <ArrowRight />,
         },
-        content: <PlayerOne onNextStep={handleNext} />,
+        content: <AddPlayerOne onNextStep={handleNext} />,
       },
       {
         prevStep: {
@@ -55,7 +55,7 @@ export const PlayersSetup = () => {
           icon: <Joystick />,
           styles: 'bg-cyan-950 text-white',
         },
-        content: <PlayerTwo />,
+        content: <AddPlayerTwo />,
       },
     ],
     [handleExitPlayersSetup, handleNext, handlePrev],
@@ -106,7 +106,7 @@ type StepButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const commonStepButtonClasses = cn(
-  'absolute h-[70px] w-[70px]',
+  'absolute h-[72px] w-[72px] bg-white',
   'rounded-full hover:w-[150px]',
 );
 
@@ -126,8 +126,7 @@ const PrevStepButton = ({
     <StepButton
       className={cn(
         commonStepButtonClasses,
-        '-left-[calc(70px+10px)] bottom-0',
-        'hover:-left-[calc(150px+10px)]',
+        'bottom-0 right-[calc(100%+10px)]',
         className,
       )}
       startIcon={icon}

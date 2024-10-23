@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { NameSchema, Player } from '../types';
 import { validate } from '@/utils';
+import { useFocus } from '@/hooks';
 
 type UseAddPlayerFormProps = {
   initialName?: string;
@@ -13,19 +14,22 @@ export const useAddPlayerForm = ({
   const [name, setName] = useState<Player['name']>(initialName);
   const [error, setError] = useState('');
 
-  const handleChange = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
-      const { value } = e.currentTarget;
-      setName(value);
-    },
-    [],
-  );
+  const inputRef = useFocus();
 
   const resetError = useCallback(() => {
     if (error) {
       setError('');
     }
   }, [error]);
+
+  const handleChange = useCallback(
+    (e: React.FormEvent<HTMLInputElement>) => {
+      const { value } = e.currentTarget;
+      setName(value);
+      resetError();
+    },
+    [resetError],
+  );
 
   const handleSubmit = useCallback(
     (e: React.SyntheticEvent) => {
@@ -39,14 +43,16 @@ export const useAddPlayerForm = ({
       } else {
         const errors = validation.error.flatten().formErrors;
         setError(errors[0]);
+        inputRef.current?.focus();
       }
     },
-    [name, onSuccess, resetError],
+    [inputRef, name, onSuccess, resetError],
   );
 
   return {
     name,
     error,
+    inputRef,
     handleChange,
     handleSubmit,
   };

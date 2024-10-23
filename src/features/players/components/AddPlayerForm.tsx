@@ -1,6 +1,6 @@
 import { UserRound } from 'lucide-react';
-import { useAddPlayerForm } from '../hooks/useAddPlayerForm';
 import { InputError } from '@/components/errors';
+import { useAddPlayerForm } from '../hooks/useAddPlayerForm';
 import { cn } from '@/utils';
 
 type AddPlayerProps = {
@@ -14,7 +14,7 @@ export const AddPlayerForm = ({
   initialName = '',
   onSuccess,
 }: AddPlayerProps) => {
-  const { name, error, handleChange, handleSubmit } =
+  const { name, error, inputRef, handleChange, handleSubmit } =
     useAddPlayerForm({
       initialName,
       onSuccess,
@@ -28,29 +28,39 @@ export const AddPlayerForm = ({
     >
       <label
         className={cn(
-          'flex items-center gap-2 pl-4',
+          'flex',
+          'items-center gap-2',
+          'pl-4',
           'font-ubuntu text-lg font-medium tracking-wide text-white',
         )}
         htmlFor="player-input"
       >
         <UserRound strokeWidth={1} />
-        <span>{label}</span>
+        <span>{label.toUpperCase()}</span>
       </label>
 
       <input
+        ref={inputRef}
         id="player-input"
-        className="rounded-full border-[3px] border-white px-4 py-5 text-white"
+        className={cn(
+          'px-5 py-5',
+          'h-[72px]',
+          'rounded-full border-[3px] border-white',
+          'tracking-wider text-white',
+          'focus:border-red-100',
+          'transition-colors',
+        )}
         type="text"
         name="player"
         value={name}
-        autoFocus
+        autoComplete="off"
         onChange={handleChange}
       />
 
       {error && (
         <InputError
           className={cn(
-            'absolute left-1/2 top-[calc(100%+10px)] w-max',
+            'absolute left-1/2 top-[calc(100%+15px)] w-max',
             '-translate-x-1/2 rounded-full',
           )}
           message={error}
