@@ -17,19 +17,18 @@ export const Start = () => {
         'p-5',
         'h-screen',
         'bg-red-500',
-        'transition-colors',
+        'transition-colors duration-700',
         isPlaying && 'justify-start gap-10 bg-red-100',
       )}
     >
       <Transition translateX={-20} duration={300}>
         <h1
           className={cn(
-            'font-bangers text-6xl text-white',
-            'drop-shadow-md',
-            '-rotate-12 transition-transform ',
-            'sm:text-8xl',
+            'font-bangers text-6xl text-red-50',
+            '-rotate-12 transition-transform',
+            'sm:text-[90px]',
             isStarted && 'scale-50',
-            isPlaying && 'scale-[0.3] text-white',
+            isPlaying && 'scale-[0.3] drop-shadow-md',
           )}
         >
           tic tac toe

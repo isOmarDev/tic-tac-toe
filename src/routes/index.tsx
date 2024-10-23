@@ -7,13 +7,6 @@ export const router = createBrowserRouter([
     Component: Start,
   },
   {
-    path: '/play',
-    lazy: async () => {
-      const { Play } = await import('./Play');
-      return { Component: Play };
-    },
-  },
-  {
     path: '*',
     lazy: async () => {
       const { NotFound } = await import('./NotFound');

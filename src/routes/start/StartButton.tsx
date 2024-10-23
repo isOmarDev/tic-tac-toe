@@ -14,8 +14,12 @@ export const StartButton = () => {
     <Transition translateY={16} duration={300} delay={300}>
       <button
         className={cn(
-          'rounded-full border-[2px] border-white px-6 py-5 font-ubuntu text-xl text-white',
-          'transition-all duration-200 ease-in-out hover:px-7',
+          'p-6',
+          'w-[100px]',
+          'rounded-full border-2 border-white',
+          'font-ubuntu text-lg font-semibold text-white',
+          'shadow',
+          'transition-all duration-200 ease-in-out hover:w-[110px]',
         )}
         onClick={handleStartGameSetup}
       >
