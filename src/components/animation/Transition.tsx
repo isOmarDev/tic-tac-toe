@@ -12,7 +12,7 @@ type TransitionProps = {
   children: React.ReactNode;
 };
 
-export const Transition = ({
+export const  Transition = ({
   className,
   translateX = 0,
   translateY = 0,
