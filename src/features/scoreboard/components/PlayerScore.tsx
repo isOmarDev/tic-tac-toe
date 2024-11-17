@@ -1,40 +1,43 @@
+import { TurnIndicator } from '@/features/gameboard/components';
 import { cn } from '@/utils';
 
 type PlayerScoreProps = {
   name: string;
-  side: JSX.Element;
-  score: string;
+  symbol: 'x' | 'o';
+  icon: JSX.Element;
+  score: number;
 };
 
 export const PlayerScore = ({
   name,
-  side,
+  symbol,
+  icon,
   score,
 }: PlayerScoreProps) => {
   return (
     <div
       className={cn(
-        'flex',
+        'relative flex',
         'shrink-0 flex-col items-center',
-        'p-6',
+        'p-7',
         'rounded-[28px] outline outline-[0px] -outline-offset-1 outline-red-100',
-        'bg-red-50',
-        'shadow-lg',
+        'bg-white shadow-md',
         'transition-all',
       )}
     >
-      <PlayerSymbole side={side} />
+      <PlayerSymbol icon={icon} />
       <PlayerName name={name} />
       <PlayerRoundsWon score={score} />
+      <TurnIndicator playerSymbol={symbol} />
     </div>
   );
 };
 
-const PlayerSymbole = ({
-  side,
-}: Pick<PlayerScoreProps, 'side'>) => {
+const PlayerSymbol = ({
+  icon,
+}: Pick<PlayerScoreProps, 'icon'>) => {
   return (
-    <div className={cn('rounded-full text-white')}>{side}</div>
+    <div className={cn('rounded-full text-white')}>{icon}</div>
   );
 };
 
@@ -42,7 +45,7 @@ const PlayerName = ({
   name,
 }: Pick<PlayerScoreProps, 'name'>) => {
   return (
-    <div className={cn('mt-5', 'font-semibold')}>{name}</div>
+    <div className={cn('mt-7', 'tracking-wide')}>{name}</div>
   );
 };
 
@@ -52,10 +55,10 @@ const PlayerRoundsWon = ({
   return (
     <div
       className={cn(
-        'mt-3 px-4 py-2',
+        'mt-3 px-5 py-2',
         'rounded-full',
-        'text-xs font-semibold text-white',
-        'bg-cyan-900',
+        'text-xs tracking-widest text-white',
+        'bg-cyan-800',
       )}
     >
       Rounds Won: {score}
