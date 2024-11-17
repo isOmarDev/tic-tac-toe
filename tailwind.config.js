@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  mode: "jit",
+  mode: 'jit',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
@@ -13,6 +13,12 @@ export default {
       ],
       bangers: ['Bangers', 'sans-serif'],
       ubuntu: ['Ubuntu', 'sans-serif'],
+    },
+    extend: {
+      colors: {
+        'golden-yellow': '#ffdd3d',
+        'blush-pink': '#fdeef0',
+      },
     },
   },
   plugins: [],
