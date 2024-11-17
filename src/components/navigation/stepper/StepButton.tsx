@@ -1,4 +1,4 @@
-import { cn } from '@/utils';
+import { Button } from '@/components/buttons/Button';
 
 type StepButtonProps = {
   startIcon?: React.JSX.Element;
@@ -13,18 +13,10 @@ export const StepButton = ({
   ...props
 }: StepButtonProps) => {
   return (
-    <button
-      className={cn(
-        'group flex items-center justify-center',
-        'overflow-hidden bg-white font-semibold text-cyan-950',
-        'transition-all',
-        className,
-      )}
-      {...props}
-    >
+    <Button className={className} {...props}>
       {startIcon && startIcon}
       {children}
       {endIcon && endIcon}
-    </button>
+    </Button>
   );
 };
