@@ -18,7 +18,7 @@
   p,
   button,
   input {
-    @apply font-ubuntu text-cyan-950;
+    @apply font-bangers text-cyan-950;
   }
 
   input,
@@ -28,3 +28,45 @@
   }
 }
 
+@layer utilities {
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes scaleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 150ms ease-in-out;
+  }
+
+  .fade-out {
+    animation: fadeOut 3000ms ease-in-out;
+  }
+
+  .scale-in {
+    animation: scaleIn 150ms ease forwards;
+  }
+}
