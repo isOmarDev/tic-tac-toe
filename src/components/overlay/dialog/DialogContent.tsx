@@ -1,4 +1,5 @@
 import React from 'react';
+import { DialogCloseTrigger } from './DialogCloseTrigger';
 import { cn } from '@/utils';
 
 type DialogContentProps = React.HTMLAttributes<HTMLDivElement>;
@@ -21,6 +22,7 @@ export const DialogContent = ({
         className,
       )}
     >
+      <DialogCloseTrigger />
       {children}
     </div>
   );
