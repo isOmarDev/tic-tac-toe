@@ -1,40 +1,74 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+  createSelector,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit';
 import { RootState } from '@/store';
 
-interface playersState {
-  player1: string;
-  player2: string;
+interface PlayersState {
+  playerOne: {
+    name: string;
+    symbol: 'x';
+  };
+  playerTwo: {
+    name: string;
+    symbol: 'o';
+  };
 }
 
-const initialState: playersState = {
-  player1: 'omar',
-  player2: 'nour',
+const initialState: PlayersState = {
+  playerOne: {
+    name: '',
+    symbol: 'x',
+  },
+  playerTwo: {
+    name: '',
+    symbol: 'o',
+  },
 };
 
 export const playersSlice = createSlice({
   name: 'players',
   initialState,
   reducers: {
-    setPlayer1Name: (state, action: PayloadAction<string>) => {
-      state.player1 = action.payload;
+    setPlayerOneName: (state, action: PayloadAction<string>) => {
+      state.playerOne.name = action.payload;
     },
-    setPlayer2Name: (state, action: PayloadAction<string>) => {
-      state.player2 = action.payload;
+    setPlayerTwoName: (state, action: PayloadAction<string>) => {
+      state.playerTwo.name = action.payload;
     },
     resetPlayersNames: (state) => {
-      state.player1 = '';
-      state.player2 = '';
+      state.playerOne.name = '';
+      state.playerTwo.name = '';
     },
+    resetPlayers: () => initialState,
   },
 });
 
 export const {
-  setPlayer1Name,
-  setPlayer2Name,
+  setPlayerOneName,
+  setPlayerTwoName,
   resetPlayersNames,
+  resetPlayers,
 } = playersSlice.actions;
 
-export const selectPlayersName = (state: RootState) =>
-  state.players;
+// Base selector
+export const selectPlayers = (state: RootState) => state.players;
+
+export const selectPlayersNames = createSelector(
+  [selectPlayers],
+  ({ playerOne, playerTwo }) => ({
+    playerOneName: playerOne.name,
+    playerTwoName: playerTwo.name,
+  }),
+);
+
+export const selectPlayersSides = createSelector(
+  [selectPlayers],
+  ({ playerOne, playerTwo }) => ({
+    playerOneSide: playerOne.symbol,
+    playerTwoSide: playerTwo.symbol,
+  }),
+);
 
 export default playersSlice.reducer;
