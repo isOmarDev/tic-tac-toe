@@ -31,12 +31,12 @@ export const AddPlayerForm = ({
           'flex',
           'items-center gap-2',
           'pl-4',
-          'font-ubuntu text-lg font-medium tracking-wide text-white',
+          'text-xl leading-none tracking-widest text-white',
         )}
         htmlFor="player-input"
       >
         <UserRound strokeWidth={1} />
-        <span>{label.toUpperCase()}</span>
+        <span>{label}</span>
       </label>
 
       <input
@@ -46,7 +46,7 @@ export const AddPlayerForm = ({
           'px-5 py-5',
           'h-[72px]',
           'rounded-full border-[3px] border-white',
-          'tracking-wider text-white',
+          'tracking-widest text-white',
           'focus:border-red-100',
           'transition-colors',
         )}
@@ -60,8 +60,12 @@ export const AddPlayerForm = ({
       {error && (
         <InputError
           className={cn(
-            'absolute left-1/2 top-[calc(100%+15px)] w-max',
-            '-translate-x-1/2 rounded-full',
+            'absolute left-1/2 top-[calc(100%+15px)]',
+            'px-5 py-3',
+            'w-max',
+            'rounded-full',
+            'text-xs leading-none tracking-widest',
+            '-translate-x-1/2',
           )}
           message={error}
         />

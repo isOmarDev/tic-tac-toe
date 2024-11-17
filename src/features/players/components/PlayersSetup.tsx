@@ -3,7 +3,7 @@ import {
   Home,
   ArrowRight,
   ArrowLeft,
-  Joystick,
+  Gamepad2,
 } from 'lucide-react';
 import {
   Stepper,
@@ -52,7 +52,7 @@ export const PlayersSetup = () => {
         },
         nextStep: {
           name: 'Play',
-          icon: <Joystick />,
+          icon: <Gamepad2 />,
           styles: 'bg-cyan-950 text-white',
         },
         content: <AddPlayerTwo />,
@@ -106,8 +106,11 @@ type StepButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const commonStepButtonClasses = cn(
-  'absolute h-[72px] w-[72px] bg-white',
-  'rounded-full hover:w-[150px]',
+  'absolute',
+  'h-[72px] w-[72px]',
+  'rounded-full',
+  'tracking-wide font-normal text-lg',
+  'bg-white hover:w-[150px] hover:shadow-md',
 );
 
 const commonStepButtonTextclasses = cn(
@@ -135,7 +138,7 @@ const PrevStepButton = ({
       <span
         className={cn(
           commonStepButtonTextclasses,
-          'ml-2 translate-x-20',
+          'translate-x-20',
         )}
       >
         {children}
@@ -163,7 +166,7 @@ const NextStepButton = ({
       <span
         className={cn(
           commonStepButtonTextclasses,
-          'mr-2 -translate-x-20',
+          '-translate-x-20',
         )}
       >
         {children}

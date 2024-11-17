@@ -3,17 +3,17 @@ import { AddPlayerForm } from './AddPlayerForm';
 import { useDispatch, useSelector } from '@/store';
 import { playGame } from '@/store/globalSlices';
 import {
-  selectPlayersName,
-  setPlayer2Name,
+  selectPlayersNames,
+  setPlayerTwoName,
 } from '../slices/playersSlice';
 
 export const AddPlayerTwo = () => {
-  const { player2 } = useSelector(selectPlayersName);
+  const { playerTwoName } = useSelector(selectPlayersNames);
   const dispatch = useDispatch();
 
   const handleOnSuccess = useCallback(
     (name: string) => {
-      dispatch(setPlayer2Name(name));
+      dispatch(setPlayerTwoName(name));
       dispatch(playGame());
     },
     [dispatch],
@@ -22,7 +22,7 @@ export const AddPlayerTwo = () => {
   return (
     <AddPlayerForm
       label="Player 2"
-      initialName={player2}
+      initialName={playerTwoName}
       onSuccess={handleOnSuccess}
     />
   );

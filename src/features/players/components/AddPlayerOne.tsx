@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { AddPlayerForm } from './AddPlayerForm';
 import { useDispatch, useSelector } from '@/store';
 import {
-  selectPlayersName,
-  setPlayer1Name,
+  selectPlayersNames,
+  setPlayerOneName,
 } from '../slices/playersSlice';
 
 type AddPlayerOneProps = { onNextStep: () => void };
@@ -11,12 +11,12 @@ type AddPlayerOneProps = { onNextStep: () => void };
 export const AddPlayerOne = ({
   onNextStep,
 }: AddPlayerOneProps) => {
-  const { player1 } = useSelector(selectPlayersName);
+  const { playerOneName } = useSelector(selectPlayersNames);
   const dispatch = useDispatch();
 
   const handleOnSuccess = useCallback(
     (playerName: string) => {
-      dispatch(setPlayer1Name(playerName));
+      dispatch(setPlayerOneName(playerName));
       onNextStep();
     },
     [dispatch, onNextStep],
@@ -25,7 +25,7 @@ export const AddPlayerOne = ({
   return (
     <AddPlayerForm
       label="Player 1"
-      initialName={player1}
+      initialName={playerOneName}
       onSuccess={handleOnSuccess}
     />
   );
