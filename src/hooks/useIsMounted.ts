@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react';
 
-export const useIsMounted = () => {
+export const useIsMounted = (delay?: number) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    if (!delay) {
+      setIsMounted(true);
+      return;
+    }
 
-    return () => {
-      setIsMounted(false);
-    };
-  }, []);
+    const timer = setTimeout(
+      () => setIsMounted(true),
+      delay || 0,
+    );
+
+    return () => clearTimeout(timer);
+  }, [delay]);
 
   return { isMounted };
 };
