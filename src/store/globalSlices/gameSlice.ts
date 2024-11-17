@@ -24,9 +24,7 @@ export const gameSlice = createSlice({
     playGame: (state) => {
       state.isPlaying = true;
     },
-    stopGame: (state) => {
-      state.isPlaying = false;
-    },
+    resetGame: () => initialState,
   },
 });
 
@@ -34,7 +32,7 @@ export const {
   startGameSetup,
   exitGameSetup,
   playGame,
-  stopGame,
+  resetGame,
 } = gameSlice.actions;
 
 export const selectGameState = (state: RootState) => state.game;
