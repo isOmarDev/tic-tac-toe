@@ -1,1 +1,1 @@
-export * from './playersSlice';
+export * from './scoreboardSlice';
