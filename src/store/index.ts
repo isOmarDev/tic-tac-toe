@@ -5,11 +5,15 @@ import {
 } from 'react-redux';
 import gameSlice from './globalSlices/gameSlice';
 import playersSlice from '@/features/players/slices/playersSlice';
+import scoreboardSlice from '@/features/scoreboard/slices/scoreboardSlice';
+import gameboardSlice from '@/features/gameboard/slices/gameboardSlice';
 
 export const store = configureStore({
   reducer: {
     game: gameSlice,
     players: playersSlice,
+    scoreboard: scoreboardSlice,
+    gameboard: gameboardSlice,
   },
 });
 
